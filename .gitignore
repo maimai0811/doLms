@@ -1,0 +1,61 @@
+node_modules/
+.env
+dist/
+build/
+coverage/
+*.log
+.DS_Store
+.vscode/
+
+
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage / test
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Cache
+.cache/
+.tmp/
+.eslintcache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Optional: lock files (CHỈ ignore nếu team thống nhất)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
