@@ -51,7 +51,9 @@ async function doDienDan(page, chuongContent) {
                 const topicCell = await row.$('th[class*="topic"]');
                 // const topicText = await page.evaluate(el => el.innerText.trim(), topicCell);
                 const topicLink = await topicCell.$('a');
-                const topicText = await page.evaluate(el => el.getAttribute('title'), topicLink);
+                // const topicText = await page.evaluate(el => el.getAttribute('title'), topicLink);
+                // const topicText = await page.evaluate(el => el.title, topicLink);
+                const topicText = await decodeHtml(page, topicLink, 'title');
 
                 if (topicText === chuongContent) {
                     const linkTopic = await row.$('th[class*="topic"] a');
@@ -87,6 +89,23 @@ async function doDienDan(page, chuongContent) {
         }
     }
 }
+
+const decodeHtml = async (page, el, attr) => {
+    return await page.evaluate(
+        (el, attr) => {
+            const raw = el.getAttribute(attr);
+            const t = document.createElement('textarea');
+            t.innerHTML = raw;
+            return t.value;
+        },
+        el,
+        attr
+    );
+};
+
+// dùng
+
+
 
 module.exports = {
     doDienDan

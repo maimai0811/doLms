@@ -34,6 +34,7 @@ const doOnTapModule = require('./doOnTap');
     const hasDapAn = value.hasDapAn;
     const maxRandom = value.maxRandom;
     const mon = key;
+    const isStyleNew = value.isStyleNew;
     await page.goto(value.url, { waitUntil: 'load', timeout: 60000 });
 
     let items = await page.$$('.section-item');
@@ -79,6 +80,9 @@ const doOnTapModule = require('./doOnTap');
           }
 
           if (isQuestion) {
+            if (isStyleNew) {
+              
+            }
             await doOnTapModule.doOnTap(newPage, pointPass, hasDapAn, maxRandom, mon, currentChuong);
           }
         } catch (err) {

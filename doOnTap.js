@@ -13,18 +13,79 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
 
         if (completeText.includes("Cần làm:")) {
             const btnAttemptQuiz = await page.$('button[id^="single_button"]');
-            if (btnAttemptQuiz) {
-                await Promise.all([
-                    page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
-                    btnAttemptQuiz.click()
-                ]);
+            // if (btnAttemptQuiz) {
+            //     await Promise.all([
+            //         page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+            //         btnAttemptQuiz.click()
+            //     ]);
 
-                // await btnAttemptQuiz.click();
+            //     // await btnAttemptQuiz.click();
+            // }
+
+            let activePage = page;
+
+            if (btnAttemptQuiz) {
+
+                const newPage = await clickAndSwitchPage(
+                        activePage,
+                        activePage.browser(),
+                        btnAttemptQuiz
+                    );
+
+                if (newPage) {
+                        await newPage.bringToFront();
+                        await newPage.waitForLoadState?.('load').catch(() => { });
+                        activePage = newPage;
+                    }
+
             }
-                
+
+            let isConfirmStart = false;
+            const startBtn = await activePage.$('#id_submitbutton');
+
+            if (startBtn) {
+                isConfirmStart = true;
+
+                const newPageAfterConfirm = await clickAndSwitchPage(
+                    activePage,
+                    activePage.browser(),
+                    startBtn
+                );
+
+                if (newPageAfterConfirm) {
+                    await newPageAfterConfirm.bringToFront();
+                    await newPageAfterConfirm.waitForLoadState?.('load').catch(() => { });
+                    activePage = newPageAfterConfirm;
+                }
+            }
+
+            if (isConfirmStart) {
+                const finalStartBtn = await activePage.waitForSelector(
+                    '#id_submitbutton',
+                    { timeout: 5000 }
+                ).catch(() => null);
+
+                if (finalStartBtn) {
+                    console.log('');
+
+                    const finalPage = await clickAndSwitchPage(
+                        activePage,
+                        activePage.browser(),
+                        finalStartBtn
+                    );
+
+                    if (finalPage) {
+                        await finalPage.bringToFront();
+                        await finalPage.waitForLoadState?.('load').catch(() => { });
+                        activePage = finalPage;
+                    }
+                }
+            }
+
+
             await new Promise(resolve => setTimeout(resolve, 3000));
 
-            const listQuestion = await page.$$('div[id^="question-"]');
+            const listQuestion = await activePage.$$('div[id^="question-"]');
             for (const question of listQuestion) {
                 const listAnswer = await question.$$('div.answer input[type="radio"]');
                 if (!listAnswer.length) continue;
@@ -34,13 +95,13 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                 await choice.click();
             }
 
-            const btnHoanThanh = await page.$('input[id="mod_quiz-next-nav"]');
+            const btnHoanThanh = await activePage.$('input[id="mod_quiz-next-nav"]');
             if (btnHoanThanh) await btnHoanThanh.click();
             await new Promise(resolve => setTimeout(resolve, 3000));
-            
-            const allSubmitButtons = await page.$$('button[id^="single_button"]');
+
+            const allSubmitButtons = await activePage.$$('button[id^="single_button"]');
             for (const btn of allSubmitButtons) {
-                const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), btn);
+                const text = await activePage.evaluate(el => el.innerText.toLowerCase().trim(), btn);
                 if (text === "nộp bài và kết thúc") {
                     // await Promise.all([
                     //     // page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
@@ -50,18 +111,21 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                     break;
                 }
             }
-
-            const btnConfirm = await page.$('button[data-action="save"]');
+            await activePage.waitForSelector('button[data-action="save"]', {
+                visible: true,
+                timeout: 0
+            });
+            const btnConfirm = await activePage.$('button[data-action="save"]');
             if (btnConfirm) {
                 await Promise.all([
-                    page.waitForNavigation({ waitUntil: 'load', timeout: 0  }),
+                    activePage.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
                     btnConfirm.click()
                 ]);
             }
 
             await new Promise(resolve => setTimeout(resolve, 3000));
             // await page.waitForSelector('div[id^="question-"]', { timeout: 10000 });
-            const listQuestion2 = await page.$$('div[id^="question-"]');
+            const listQuestion2 = await activePage.$$('div[id^="question-"]');
             for (const question of listQuestion2) {
                 const className = await question.evaluate(el => el.className);
                 const cauHoi = await getNoiDungCauHoi(question);
@@ -84,16 +148,27 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                 }
             }
 
-            const stopLinks = await page.$$('.submitbtns a');
+            const stopLinks = await activePage.$$('.submitbtns a');
             for (const a of stopLinks) {
-                const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), a);
+                const text = await activePage.evaluate(el => el.innerText.toLowerCase().trim(), a);
                 if (text === "dừng xem lại") {
                     await Promise.all([
-                        page.waitForNavigation({ waitUntil: 'load', timeout: 0  }),
+                        activePage.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
                         a.click()
                     ]);
                     break;
                 }
+            }
+
+            if (activePage !== page) {
+                await activePage.close();
+                await page.bringToFront();
+                activePage = page;
+                await page.reload({
+                    waitUntil: 'networkidle0', // hoặc 'load'
+                    timeout: 0
+                });
+                // await page.waitForLoadState?.('load')
             }
 
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -102,22 +177,78 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
             demLanLoi++;
 
         } else if (completeText.includes("Lỗi:") || isDoing) {
+            let activePage = page;
             const allButtons = await page.$$('button[id^="single_button"]');
             for (const btn of allButtons) {
                 const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), btn);
                 if (text === "thực hiện lại đề thi" || text === "tiếp tục làm bài") {
-                    await Promise.all([
-                        page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
-                        btn.click()
-                    ]);
+                    // await Promise.all([
+                    //     page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+                    //     btn.click()
+                    // ]);
                     // await btn.click();
+                    const newPage = await clickAndSwitchPage(
+                        activePage,
+                        activePage.browser(),
+                        btn
+                    );
+
+                    if (newPage) {
+                        await newPage.bringToFront();
+                        await newPage.waitForLoadState?.('load').catch(() => { });
+                        activePage = newPage;
+                    }
                     break;
                 }
             }
 
+            let isConfirmStart = false;
+            const startBtn = await activePage.$('#id_submitbutton');
+
+            if (startBtn) {
+                isConfirmStart = true;
+
+                const newPageAfterConfirm = await clickAndSwitchPage(
+                    activePage,
+                    activePage.browser(),
+                    startBtn
+                );
+
+                if (newPageAfterConfirm) {
+                    await newPageAfterConfirm.bringToFront();
+                    await newPageAfterConfirm.waitForLoadState?.('load').catch(() => { });
+                    activePage = newPageAfterConfirm;
+                }
+            }
+
+            if (isConfirmStart) {
+                const finalStartBtn = await activePage.waitForSelector(
+                    '#id_submitbutton',
+                    { timeout: 5000 }
+                ).catch(() => null);
+
+                if (finalStartBtn) {
+                    console.log('');
+
+                    const finalPage = await clickAndSwitchPage(
+                        activePage,
+                        activePage.browser(),
+                        finalStartBtn
+                    );
+
+                    if (finalPage) {
+                        await finalPage.bringToFront();
+                        await finalPage.waitForLoadState?.('load').catch(() => { });
+                        activePage = finalPage;
+                    }
+                }
+            }
+
+
+
             await new Promise(resolve => setTimeout(resolve, 3000));
 
-            const listQuestion = await page.$$('div[id^="question-"]');
+            const listQuestion = await activePage.$$('div[id^="question-"]');
             for (const question of listQuestion) {
                 if (demLanLoi >= maxRandom) {
                     await choiceAnswerTheoDb(question, mon, currentChuong);
@@ -131,22 +262,22 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                 }
             }
 
-            const btnHoanThanh = await page.$('input[id="mod_quiz-next-nav"]');
+            const btnHoanThanh = await activePage.$('input[id="mod_quiz-next-nav"]');
             if (btnHoanThanh) await btnHoanThanh.click();
             await new Promise(resolve => setTimeout(resolve, 3000));
 
             let needConfirm = true;
-            const allSubmitButtons = await page.$$('button[id^="single_button"]');
+            const allSubmitButtons = await activePage.$$('button[id^="single_button"]');
             for (const btn of allSubmitButtons) {
-                const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), btn);
+                const text = await activePage.evaluate(el => el.innerText.toLowerCase().trim(), btn);
 
                 if (text === "nộp bài và kết thúc") {
-                    const hasDataActionSave = await page.evaluate(el => el.getAttribute("data-action") === "save", btn);
+                    const hasDataActionSave = await activePage.evaluate(el => el.getAttribute("data-action") === "save", btn);
 
                     if (hasDataActionSave) {
                         needConfirm = false;
                         await Promise.all([
-                            page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+                            activePage.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
                             btn.click()
                         ]);
                         break;
@@ -156,23 +287,17 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                     }
 
                 }
-                // if (text === "nộp bài và kết thúc") {
-                //     // await Promise.all([
-                //     //     // page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
-                //     //     btn.click()
-                //     // ]);
-
-                    
-                //     await btn.click();
-                //     break;
-                // }
             }
 
             if (needConfirm) {
-                const btnConfirm = await page.$('button[data-action="save"]');
+                await activePage.waitForSelector('button[data-action="save"]', {
+                    visible: true,
+                    timeout: 0
+                });
+                const btnConfirm = await activePage.$('button[data-action="save"]');
                 if (btnConfirm) {
                     await Promise.all([
-                        page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+                        activePage.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
                         btnConfirm.click()
                     ]);
                 }
@@ -181,7 +306,7 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
 
             await new Promise(resolve => setTimeout(resolve, 3000));
             // await page.waitForSelector('div[id^="question-"]', { timeout: 0 });
-            const listQuestion2 = await page.$$('div[id^="question-"]');
+            const listQuestion2 = await activePage.$$('div[id^="question-"]');
             for (const question of listQuestion2) {
                 const className = await question.evaluate(el => el.className);
                 const cauHoi = await getNoiDungCauHoi(question);
@@ -204,16 +329,27 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                 }
             }
 
-            const stopLinks = await page.$$('.submitbtns a');
+            const stopLinks = await activePage.$$('.submitbtns a');
             for (const a of stopLinks) {
-                const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), a);
+                const text = await activePage.evaluate(el => el.innerText.toLowerCase().trim(), a);
                 if (text === "dừng xem lại") {
                     await Promise.all([
-                        page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+                        activePage.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
                         a.click()
                     ]);
                     break;
                 }
+            }
+
+            if (activePage !== page) {
+                await activePage.close();
+                await page.bringToFront();
+                activePage = page;
+                await page.reload({
+                    waitUntil: 'networkidle0', // hoặc 'load'
+                    timeout: 0
+                });
+                // await page.waitForLoadState?.('load')
             }
 
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -223,25 +359,104 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
             demLanLoi++;
             isDoing = false;
         } else {
-            const allButtons = await page.$$('button[id^="single_button"]');
+            // const allButtons = await page.$$('button[id^="single_button"]');
+            // for (const btn of allButtons) {
+            //     const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), btn);
+            //     if (text === "tiếp tục làm bài") {
+            //         isDoing = true;
+            //         // await btn.click();
+            //         await Promise.all([
+            //             page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
+            //             btn.click()
+            //         ]);
+            //         break;
+            //     }
+            // }
+
+            // if (!isDoing) {
+            //     const feedback = await page.$('#feedback');
+            //     const maxPointText = feedback
+            //         ? await page.evaluate(el => el.innerText, feedback)
+            //         : "";
+
+            //     if (isPointPass !== 10 || maxPointText.toLowerCase().includes("10,00 / 10,00")) {
+            //         isPass = true;
+            //     } else {
+            //         isDoing = true;
+            //     }
+            // }
+
+
+
+            let activePage = page;
+
+            const allButtons = await activePage.$$('button[id^="single_button"]');
             for (const btn of allButtons) {
-                const text = await page.evaluate(el => el.innerText.toLowerCase().trim(), btn);
+                const text = await activePage.evaluate(el => el.innerText.toLowerCase().trim(), btn);
                 if (text === "tiếp tục làm bài") {
                     isDoing = true;
-                    // await btn.click();
-                    await Promise.all([
-                        page.waitForNavigation({ waitUntil: 'load', timeout: 0 }),
-                        btn.click()
-                    ]);
+
+                    const newPage = await clickAndSwitchPage(
+                        activePage,
+                        activePage.browser(),
+                        btn
+                    );
+
+                    if (newPage) {
+                        await newPage.bringToFront();
+                        await newPage.waitForLoadState?.('load').catch(() => { });
+                        activePage = newPage; // 🔥 CHUYỂN CONTEXT
+                        await page.waitForLoadState?.('load')
+                    }
+
+                    if (activePage !== page) {
+                        await activePage.close();
+                        await page.bringToFront();
+                        activePage = page;
+                    }
+
                     break;
                 }
             }
 
+            // if (!isDoing) {
+            //     const feedback = await activePage.$('#feedback');
+                
+            //     const maxPointText = feedback
+            //         ? await activePage.evaluate(el => el.innerText, feedback)
+            //         : "";
+
+            //     if (isPointPass !== 10 || maxPointText.toLowerCase().includes("10,00 / 10,00")) {
+            //         isPass = true;
+            //     } else {
+            //         isDoing = true;
+            //     }
+            // }
+
             if (!isDoing) {
-                const feedback = await page.$('#feedback');
-                const maxPointText = feedback
-                    ? await page.evaluate(el => el.innerText, feedback)
-                    : "";
+                const feedback = await activePage.$('#feedback');
+
+                let maxPointText = "";
+
+                if (feedback) {
+                    maxPointText = await activePage.evaluate(el => el.innerText, feedback);
+                } else {
+                    // Không có feedback → tìm trong td.cell
+                    const isFullPoint = await activePage.$$eval(
+                        'td.cell',
+                        tds => tds.some(td =>
+                            td.innerText
+                                .replace(/\s+/g, ' ')
+                                .includes('10,00 trên 10,00') &&
+                            td.innerText.includes('100')
+                        )
+                    );
+
+                    if (isFullPoint) {
+                        isPass = true;
+                        break;
+                    }
+                }
 
                 if (isPointPass !== 10 || maxPointText.toLowerCase().includes("10,00 / 10,00")) {
                     isPass = true;
@@ -249,9 +464,53 @@ const doOnTap = async (page, isPointPass, hasDapAn, maxRandom, mon, currentChuon
                     isDoing = true;
                 }
             }
+
+
         }
+
+        // if (activePage !== page) {
+        //     await activePage.close();
+        //     await page.bringToFront();
+        //     activePage = page;
+        // }
     }
 };
+
+async function clickAndSwitchPage(page, browser, element, timeout = 5000) {
+    const newPagePromise = new Promise(resolve => {
+        const handler = async target => {
+            if (target.type() === 'page') {
+                browser.off('targetcreated', handler);
+                resolve(target.page());
+            }
+        };
+        browser.on('targetcreated', handler);
+    });
+
+    await element.click();
+
+    const newPage = await Promise.race([
+        newPagePromise,
+        page.waitForNavigation({ waitUntil: 'load', timeout }).then(() => null).catch(() => null)
+    ]);
+
+    return newPage; // null = vẫn tab cũ
+}
+
+function normalizeMoodleImageUrl(url) {
+    if (!url) return url;
+
+    const pattern =
+        /(https:\/\/lms\.pttc1\.edu\.vn\/pluginfile\.php\/\d+\/question\/questiontext\/)(\d+)\/(\d+)(\/\d+\/image\d+\.(png|jpg|jpeg))/i;
+
+    if (!pattern.test(url)) return url;
+
+    return url.replace(pattern, '$1{idBai}/{idCau}$4');
+}
+
+
+
+
 
 async function getNoiDungCauHoi(questionElement) {
     let cauHoi = '';
@@ -304,7 +563,9 @@ async function getNoiDungCauHoi(questionElement) {
         }
     }
 
-    return cauHoi.trim();
+    cauHoi = cauHoi.trim();
+    cauHoi = normalizeMoodleImageUrl(cauHoi)
+    return cauHoi;
 }
 
 async function getNoiDungDapAnDung(questionElement) {
@@ -359,6 +620,55 @@ async function getNoiDungDapAnDung(questionElement) {
 }
 
 async function getNoiDungDapAnDungResponse(questionElement) {
+    let dapAn = '';
+
+    const rightAnswerEl = await questionElement.$('.outcome .rightanswer');
+    if (!rightAnswerEl) return '';
+
+    const listP = await rightAnswerEl.$$('p');
+
+    // ✅ TH2: không có <p>
+    if (listP.length === 0) {
+        const fullText = await rightAnswerEl.evaluate(el =>
+            el.textContent.replace('Câu trả lời đúng là:', '').trim()
+        );
+        return fullText;
+    }
+
+    // ✅ TH1: có <p>
+    for (const pcell of listP) {
+        const spans = await pcell.$$('span');
+
+        if (spans.length === 0) {
+            const text = await pcell.evaluate(el => el.textContent.trim());
+            dapAn += ' ' + text;
+        } else {
+            for (const dongDapAn of spans) {
+                const text = await dongDapAn.evaluate(el => el.textContent.trim());
+                dapAn += ' ' + text;
+            }
+        }
+
+        // xử lý img chung cho cả 2 nhánh
+        const imgElements = await pcell.$$('img');
+        for (const img of imgElements) {
+            const mathml = await img.evaluate(el => el.getAttribute('data-mathml'));
+            if (mathml) {
+                dapAn += ' ' + mathml;
+            } else {
+                const src = await img.evaluate(el => el.getAttribute('src'));
+                if (src) dapAn += ' ' + src;
+            }
+        }
+    }
+
+    return dapAn.trim();
+}
+
+
+// áp dụng version cũ. k dùng dc vì phát sinh TH đáp án đúng lại nằm luôn ở class .rightanswer
+// ví dụ <div class="rightanswer">Câu trả lời đúng là: Adding mushroom</div>
+async function getNoiDungDapAnDungResponseV1(questionElement) {
     let dapAn = '';
 
     // Tìm tất cả <p> trong .outcome .rightanswer
@@ -516,12 +826,12 @@ async function getNoiDungDapAn(questionElement) {
 
 // async function getNoiDungCauHoi(questionElement) {
 //     let cauHoi = '';
-    
+
 //     const list_p = await questionElement.$$('.qtext > p');  // CSS selector thay thế cho XPath: .//div[@class="qtext"]/p
-    
+
 //     for (const pcell of list_p) {
 //         const list_dong_cau_hoi = await pcell.$$('span');
-        
+
 //         if (list_dong_cau_hoi.length === 0) {
 //             // Lấy text từ thẻ <p>
 //             const text = await (await pcell.getProperty('textContent')).jsonValue();
@@ -776,11 +1086,14 @@ async function choiceAnswerTheoDb(questionElement, mon, chuong) {
         ? cauHoiTrongDb.other.split("<<<<>>>>").map(normalizeString)
         : [];
 
+    const dapAnTrongDb = normalizeString(cauHoiTrongDb.answer).toLowerCase();
+
     if (listAnswerFromDb.length > 0) {
         for (const item of answerDivs) {
-            const dapAn = normalizeString(await getNoiDungDapAn(item));
+            const dapAn = normalizeString(await getNoiDungDapAn(item)).toLowerCase();
 
-            if (listAnswerFromDb.includes(dapAn)) {
+            // áp dụng cho môn python, đáp án số, tránh trường hợp đáp án sai là 5, đáp án đúng là 15 
+            if (dapAnTrongDb == dapAn) {
                 const radio = await item.$('input[type="radio"]');
                 if (radio) {
                     await radio.evaluate(el => el.scrollIntoView({ behavior: 'auto', block: 'center' }));
@@ -788,6 +1101,16 @@ async function choiceAnswerTheoDb(questionElement, mon, chuong) {
                     return;
                 }
             }
+
+            // trường hợp câu hỏi giống nhau nhưng khác đáp án
+            // if (listAnswerFromDb.includes(dapAn)) {
+            //     const radio = await item.$('input[type="radio"]');
+            //     if (radio) {
+            //         await radio.evaluate(el => el.scrollIntoView({ behavior: 'auto', block: 'center' }));
+            //         await radio.click();
+            //         return;
+            //     }
+            // }
         }
 
         // Không match → chọn ngẫu nhiên

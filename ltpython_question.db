@@ -1,0 +1,137 @@
+{"question":"Kiểu dữ liệu của biến x trong đoạn\n  code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241183/image2.png","answer":"int","other":"","subject":"ltpython","chapter":2,"_id":"1yIfmV67H8lwJQcZ"}
+{"question":"Để lấy các phần tử từ index 2 đến cuối với bước nhảy 2, dùng?","answer":"my_list[2::2]","other":"","subject":"ltpython","chapter":3,"_id":"2vImDAemNC9n3br4"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241187/image5.png","answer":"1237","other":"","subject":"ltpython","chapter":2,"_id":"3KTMWrFybsPbLuOc"}
+{"question":"Để tạo danh sách từ generator, dùng?","answer":"list(generator)","other":"","subject":"ltpython","chapter":3,"_id":"6lb8GI0mSB6GmS9D"}
+{"question":"my_list[::-1] với my_list = [1,2,3] trả về?","answer":"[3,2,1]","other":"","subject":"ltpython","chapter":3,"_id":"6oxVZLdH96eV0KQN"}
+{"question":"Lệnh nào xóa phần tử đầu tiên có giá trị 2 trong my_list = [1, 2,\n  3, 2]?","answer":"my_list.remove(2)","other":"","subject":"ltpython","chapter":3,"_id":"7Rnql1YBMO0uVW2z"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241223/image1.png","answer":"Not equal","other":"","subject":"ltpython","chapter":4,"_id":"AiGaORjej2iSHZy4"}
+{"question":"Cách nào sau đây là đúng để tạo một danh sách rỗng trong Python?","answer":"list = {}","other":"","subject":"ltpython","chapter":3,"_id":"BXjENRHsvGNu8TmU"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241228/image6.png","answer":"A","other":"","subject":"ltpython","chapter":4,"_id":"BcNiuLxnzAmTCmJc"}
+{"question":"Để cập nhật giá trị phần tử thứ 2 (index 1) của danh sách my_list\n  = [10, 20, 30] thành 25, lệnh nào đúng?","answer":"my_list[1] = 25","other":"","subject":"ltpython","chapter":3,"_id":"Bgnsp6Yh4iUNDpbT"}
+{"question":"Để thêm phần tử vào đầu danh sách, có thể dùng?","answer":"insert(0, value)","other":"","subject":"ltpython","chapter":3,"_id":"CZyxQy91mrDMtaIR"}
+{"question":"Có thể cập nhật phần tử trong danh sách không?","answer":"Không, danh sách là immutable","other":"","subject":"ltpython","chapter":3,"_id":"Cea9Pux146QttONq"}
+{"question":"List comprehension [x**2 for x in range(5)] cho kết quả?","answer":"[0, 1, 4, 9, 16]","other":"","subject":"ltpython","chapter":3,"_id":"DviipYlvV86xNRNm"}
+{"question":"Lệnh my_list.clear() sẽ?","answer":"Xóa tất cả phần tử, danh sách rỗng","other":"","subject":"ltpython","chapter":3,"_id":"E7oRawluW7jWIDt3"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241194/image9.png","answer":"<class 'int'>","other":"","subject":"ltpython","chapter":2,"_id":"EFouVzLR0PIifHiA"}
+{"question":"Câu lệnh nào sau đây khai báo một chuỗi trong Python?","answer":"x = \"Hello\"","other":"","subject":"ltpython","chapter":2,"_id":"IRtzTCWdu2FhFnjb"}
+{"question":"Hàm sorted(my_list) khác my_list.sort() ở điểm nào?","answer":"sorted() trả về danh sách mới, không thay đổi gốc","other":"","subject":"ltpython","chapter":3,"_id":"K32s8IRB344cPhiS"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241184/image3.png","answer":"<class 'int'>","other":"","subject":"ltpython","chapter":2,"_id":"KUFPS9QYmpOAUF81"}
+{"question":"Làm thế nào để kiểm tra kiểu dữ liệu của một biến trong\n  Python?","answer":"type()","other":"","subject":"ltpython","chapter":2,"_id":"MfYKJKwg8RMtyn64"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241234/image12.png","answer":"Found and long list","other":"","subject":"ltpython","chapter":4,"_id":"N6mWtnJk9OpOzcdR"}
+{"question":"Sau lệnh my_list = [1, 2, 3]; my_list.pop(), danh sách là?","answer":"[1, 2]","other":"","subject":"ltpython","chapter":3,"_id":"NcpMb6ygOIp7B35H"}
+{"question":"Kết quả của lệnh my_list = list(range(3)) là gì?","answer":"[0, 1, 2, 3]","other":"","subject":"ltpython","chapter":3,"_id":"QaPHD7Yq7NUanRzR"}
+{"question":"Sau lệnh my_list = [1, 2]; my_list.insert(1, 3), danh sách\n  là?","answer":"[1, 3, 2]","other":"","subject":"ltpython","chapter":3,"_id":"R9xC9brT00mR5Ry1"}
+{"question":"Danh sách my_list = [1, 2, [3, 4]] là ví dụ về?","answer":"Danh sách một chiều","other":"","subject":"ltpython","chapter":3,"_id":"UHFbNkUoAIGfyTRT"}
+{"question":"Kiểu dữ liệu nào được sử dụng để lưu trữ số nguyên trong\n  Python?","answer":"float","other":"","subject":"ltpython","chapter":2,"_id":"UHpMKqOVXNRjIzuG"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241230/image8.png","answer":"Positive","other":"","subject":"ltpython","chapter":4,"_id":"Vd1XT8jwGDO1vYCz"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241191/image7.png","answer":"HelloWorld","other":"","subject":"ltpython","chapter":2,"_id":"ViO00naCxcRfOkDX"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241225/image3.png","answer":"Primary color","other":"","subject":"ltpython","chapter":4,"_id":"WA3uNW2wFgnWj8pT"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241229/image7.png","answer":"Hot","other":"","subject":"ltpython","chapter":4,"_id":"WNoA9HXfVptjDEhI"}
+{"question":"Lệnh nào thêm phần tử 4 vào cuối danh sách my_list = [1, 2,\n  3]?","answer":"my_list.append(4)","other":"","subject":"ltpython","chapter":3,"_id":"YKS37Wo72GBUcHxM"}
+{"question":"Lệnh my_list.extend([4, 5]) làm gì với my_list = [1, 2, 3]?","answer":"Thêm [4, 5] như một phần tử","other":"","subject":"ltpython","chapter":3,"_id":"YxvZvFunDcSa3pQI"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241197/image11.png","answer":"21.0","other":"","subject":"ltpython","chapter":2,"_id":"a0f86DUXy81PXKWp"}
+{"question":"Kiểu dữ liệu nào được sử dụng để biểu diễn giá trị True hoặc\n  False?","answer":"str","other":"","subject":"ltpython","chapter":2,"_id":"akXJDLWBR5uTwG0M"}
+{"question":"Kết quả của phép toán 5 + 3.2 trong Python là gì?","answer":"8","other":"","subject":"ltpython","chapter":2,"_id":"bLR9Ka47qYmXDz6d"}
+{"question":"Câu lệnh nào sau đây chuyển đổi một số nguyên thành chuỗi?","answer":"int()","other":"","subject":"ltpython","chapter":2,"_id":"bUEm40Nvd6fth54J"}
+{"question":"Với my_list = [0,1,2,3,4], my_list[1:3] trả về?","answer":"[1,2]","other":"","subject":"ltpython","chapter":3,"_id":"bUxuzwslSKxraYA3"}
+{"question":"Câu lệnh nào sau đây kiểm tra xem một biến có phải là kiểu\n  Boolean hay không?","answer":"isinstance(x, bool)","other":"","subject":"ltpython","chapter":2,"_id":"bmBPuH0RNV7qazao"}
+{"question":"Kiểu dữ liệu nào được sử dụng để lưu trữ số thực trong\n  Python?","answer":"int","other":"","subject":"ltpython","chapter":2,"_id":"brE3Sgy1Q5YxbkuC"}
+{"question":"Để đảo ngược danh sách my_list = [1, 2, 3], dùng lệnh?","answer":"my_list.reverse()","other":"","subject":"ltpython","chapter":3,"_id":"cncZ6cGTOBt5mdrD"}
+{"question":"Để tạo danh sách từ chuỗi \"hello\", lệnh nào đúng?","answer":"list(\"hello\")","other":"","subject":"ltpython","chapter":3,"_id":"djFJbbxvWmkYON7I"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241189/image6.png","answer":"10.0","other":"","subject":"ltpython","chapter":2,"_id":"dtsMSBnLkPo8is90"}
+{"question":"Lệnh del my_list[1] làm gì với my_list = [10, 20, 30]?","answer":"Xóa phần tử index 1 (20)","other":"","subject":"ltpython","chapter":3,"_id":"dxxXY2DRAR8HUGZ4"}
+{"question":"my_list[:] làm gì?","answer":"Sao chép toàn bộ danh sách","other":"","subject":"ltpython","chapter":3,"_id":"enJE9VMUAmMlaWoW"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241231/image9.png","answer":"Not empty","other":"","subject":"ltpython","chapter":4,"_id":"fpnCmqE0keDqaD3g"}
+{"question":"Lệnh nào sắp xếp danh sách my_list = [3, 1, 2] tăng dần tại chỗ?","answer":"my_list.sort()","other":"","subject":"ltpython","chapter":3,"_id":"gJwa7KkMYhFFMFdC"}
+{"question":"Kết quả của đoạn code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241182/image1.png","answer":"10","other":"","subject":"ltpython","chapter":2,"_id":"lPpaN6Acab8BJ765"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241186/image4.png","answer":"True","other":"","subject":"ltpython","chapter":2,"_id":"o2a41avRZaejgA7o"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241192/image8.png","answer":"2","other":"","subject":"ltpython","chapter":2,"_id":"o3Z7jRKgJnvkFhhH"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241227/image5.png","answer":"Missing","other":"","subject":"ltpython","chapter":4,"_id":"pJ4xtm1f0J5TGjJl"}
+{"question":"Cú pháp nào tạo danh sách các số chẵn từ 0 đến 10 bằng list\n  comprehension?","answer":"[x for x in range(11) if x % 2 == 0]","other":"","subject":"ltpython","chapter":3,"_id":"qkvDaMEJG2bUqUmH"}
+{"question":"Nếu danh sách my_list = [1, 2, 3], sau lệnh my_list[-1] = 4, danh\n  sách trở thành?","answer":"[1, 2, 4]","other":"","subject":"ltpython","chapter":3,"_id":"sxHC6icgkZ9ac5Tx"}
+{"question":"Kết quả của đoạn code sau là\n  gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241195/image10.png","answer":"True","other":"","subject":"ltpython","chapter":2,"_id":"vSyxDTrTmHzuOsWl"}
+{"question":"Câu lệnh nào sau đây chuyển đổi một chuỗi thành số nguyên?","answer":"str()","other":"","subject":"ltpython","chapter":2,"_id":"wXbvBJsuii2Ralok"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241235/image13.png","answer":"Adding mushroom","other":"","subject":"ltpython","chapter":4,"_id":"rscTBJ5hlgk4AOlc"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241237/image15.png","answer":"High scores","other":"","subject":"ltpython","chapter":4,"_id":"VGtgjWJ6um342IKy"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241232/image10.png","answer":"Welcome admin","other":"","subject":"ltpython","chapter":4,"_id":"thNPkm6N3eqL5oUV"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241233/image11.png","answer":"1 2 3 4","other":"","subject":"ltpython","chapter":4,"_id":"QYvOWd8kJ9w9baVX"}
+{"question":"Kết quả của code sau là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241236/image14.png","answer":"Welcome","other":"","subject":"ltpython","chapter":4,"_id":"bFpRCdUK4ANPcInn"}
+{"question":"Phương thức items() trong từ điển trả về gì?","answer":"Danh sách các key","other":"","subject":"ltpython","chapter":5,"_id":"sETB8iuhxGjSYyNb"}
+{"question":"Phương thức nào dùng để xóa một\n  phần tử cụ thể trong từ điển?","answer":"my_dict.remove('key')","other":"","subject":"ltpython","chapter":5,"_id":"25Ogfn6WCE9QQEHM"}
+{"question":"Để xóa toàn bộ phần tử trong từ điển nhưng giữ cấu trúc, dùng\n  phương thức nào?","answer":"my_dict.clear()","other":"","subject":"ltpython","chapter":5,"_id":"mN8kfQkqYJhF5Pjh"}
+{"question":"Để lặp qua các key trong từ điển, cách nào sau đây là đúng?","answer":"for key in my_dict:","other":"","subject":"ltpython","chapter":5,"_id":"YNGa7lVj0T2DJ7YY"}
+{"question":"Cách nào sau đây là đúng để tạo một\n  từ điển rỗng trong Python?","answer":"dict = {}","other":"","subject":"ltpython","chapter":5,"_id":"q1zGX2eV5EEqN5nL"}
+{"question":"Trong danh sách lồng từ điển, cách truy cập value là gì? Ví dụ:\n  my_list = {'name': 'Alice'}","answer":"my_list[0]['name']","other":"","subject":"ltpython","chapter":5,"_id":"YK8wziKdZcwtqhNj"}
+{"question":"Để lặp qua từ điển lồng từ điển, có thể dùng?","answer":"for outer_key in my_dict: for inner_key in my_dict[outer_key]:","other":"","subject":"ltpython","chapter":5,"_id":"j5MnU05xBQKND3nu"}
+{"question":"Để sắp xếp từ điển thành một dict mới theo key, dùng gì?","answer":"dict(sorted(my_dict.iiems()))","other":"","subject":"ltpython","chapter":5,"_id":"KaiXJXEJHD8DvHhr"}
+{"question":"Để thêm phần tử vào danh sách bên trong từ điển, dùng gì?","answer":"my_dict['key'].append(4)","other":"","subject":"ltpython","chapter":5,"_id":"nEoOlNliiQjHetkJ"}
+{"question":"Để tạo từ điển với các cặp key-value, cách nào sau đây là hợp lệ?","answer":"my_dict = {1: 'one', 2: 'two'}","other":"","subject":"ltpython","chapter":5,"_id":"IGEGYjoZIanS4rMa"}
+{"question":"Để lặp qua cả key và value cùng lúc, dùng gì?","answer":"for key, value in my_dict:","other":"","subject":"ltpython","chapter":5,"_id":"pOGhAwmP1cwMT2j7"}
+{"question":"Để sửa giá trị của một key đã tồn tại trong từ điển, cần phải làm\n  gì?","answer":"my_dict.update('key': 'new_value')","other":"","subject":"ltpython","chapter":5,"_id":"tZyiTU9sBxbb1RRd"}
+{"question":"Hàm nào có thể tạo từ điển từ hai danh sách keys và values?","answer":"dict.fromkeys(keys, values)","other":"","subject":"ltpython","chapter":5,"_id":"WnDwUD1srzFC8Zsv"}
+{"question":"Phương thức update() có thể dùng để hợp nhất hai từ điển lồng\n  nhau không?","answer":"Không, chỉ cho từ điển phẳng","other":"","subject":"ltpython","chapter":5,"_id":"zq2cjnjjMhmf6btD"}
+{"question":"Phương thức pop() trong từ điển trả về gì?","answer":"Xóa và trả về giá trị của key được chỉ định","other":"","subject":"ltpython","chapter":5,"_id":"Hng3j8lYOB5IDhSm"}
+{"question":"Trong từ điển lồng danh sách, cách truy cập phần tử danh sách là\n  gì? Ví dụ: my_dict = {'key': [1, 2, 3]}v","answer":"my_dict['key'][1]","other":"","subject":"ltpython","chapter":5,"_id":"6C8yBKQiBsZbBgeM"}
+{"question":"Để thêm một phần tử mới vào từ điển, cách nào sau đây là đúng?","answer":"my_dict.append('key': 'value')","other":"","subject":"ltpython","chapter":5,"_id":"oVm9nQXH8NHhHn8O"}
+{"question":"Phương thức values() dùng để lặp qua gì trong từ điển?","answer":"Các key","other":"","subject":"ltpython","chapter":5,"_id":"9b02klaUQWFSthe2"}
+{"question":"Key trong từ điển Python có thể là kiểu dữ liệu nào sau đây?","answer":"Chỉ số nguyên","other":"","subject":"ltpython","chapter":5,"_id":"6BK58I9D91i901y7"}
+{"question":"Để lặp qua danh sách lồng từ điển, có thể dùng?","answer":"for dict in my_list: print(dict['key'])","other":"","subject":"ltpython","chapter":5,"_id":"yrV1pncqRhVbO7PL"}
+{"question":"Để tạo vòng lặp vô hạn trong Python\n  và thoát bằng điều kiện, ta thường dùng cấu trúc nào?","answer":"while i < 10:","other":"","subject":"ltpython","chapter":6,"_id":"giCM5v6kaQwekLts"}
+{"question":"Đoạn code sau dùng input() để lấy số nguyên từ người dùng. Kết\n  quả của num là gì nếu người dùng nhập \"5\"?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241267/image3.png","answer":"String \"5\"","other":"","subject":"ltpython","chapter":6,"_id":"LdbFg5Kca4nxLPxi"}
+{"question":"Đoạn code sau sẽ in ra những số nào?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241265/image2.png","answer":"1 3 5 7 9","other":"","subject":"ltpython","chapter":6,"_id":"X9GJAuC7Il1wSyz7"}
+{"question":"Đoạn code sau sẽ chạy như thế nào nếu người dùng nhập \"quit\" sau\n  vài lần nhập số?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241268/image4.png","answer":"In tất cả input trừ \"quit\" và dừng.","other":"","subject":"ltpython","chapter":6,"_id":"khHL0GGbzCPMg3NG"}
+{"question":"Lỗi thường gặp khi dùng vòng lặp while với input là gì nếu quên\n  tăng biến đếm?","answer":"Vòng lặp chạy đúng.","other":"","subject":"ltpython","chapter":6,"_id":"b4ZxSzVdG5Va5fE8"}
+{"question":"Đoạn code sau sẽ in ra bao nhiêu lần chữ \"Hello\"?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241263/image1.png","answer":"0 lần","other":"","subject":"ltpython","chapter":6,"_id":"98riILxfh19Igu7n"}
+{"question":"Trong vòng lặp while, lệnh continue sẽ làm gì nếu gặp ở giữa\n  code?","answer":"Thoát khỏi vòng lặp.","other":"","subject":"ltpython","chapter":6,"_id":"f4fegHSJj5IK532x"}
+{"question":"Đoạn code sau sẽ in ra tổng các số nhập vào cho đến khi nhập số\n  âm. Giả sử nhập 1, 2, -1 thì tổng là bao nhiêu?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241271/image6.png","answer":"0 (vì continue skip 0)","other":"","subject":"ltpython","chapter":6,"_id":"huI4eRf2GdZWvF9r"}
+{"question":"Trong vòng lặp while, lệnh break có tác dụng gì?","answer":"Bỏ qua phần còn lại của vòng lặp và quay lại đầu.","other":"","subject":"ltpython","chapter":6,"_id":"XCxOT5nh9uWrZ2PN"}
+{"question":"Đoạn code sau dùng input để lấy số thực (float). Nếu người dùng\n  nhập \"3.14\", kết quả của value là gì?  https://lms.pttc1.edu.vn/pluginfile.php/73936/question/questiontext/{idBai}/{idCau}/241270/image5.png","answer":"String \"3.14\"","other":"","subject":"ltpython","chapter":6,"_id":"CwkGMveEzRUEsEp9"}
+{"question":"**kwargs trong hàm dùng để làm gì?","answer":"Truyền tham số vị trí biến đổi.","other":"","subject":"ltpython","chapter":7,"_id":"WbWpVnNsPRpicE1A"}
+{"question":"Hàm trong Python có thể trả về bao nhiêu giá trị?","answer":"Chỉ một giá trị.","other":"","subject":"ltpython","chapter":7,"_id":"eQmIJATY8KOr2Hj4"}
+{"question":"map(lambda x: x*2, [1, 2, 3]) trả\n  về gì?","answer":"[2, 4, 6] dưới dạng list.","other":"","subject":"ltpython","chapter":7,"_id":"FvPBhlMNA54KqvIW"}
+{"question":"Khi gọi hàm với tham số theo tên, thứ tự có quan trọng không?","answer":"Có, phải theo thứ tự định nghĩa.","other":"","subject":"ltpython","chapter":7,"_id":"0Tg375VPc5VEGP4c"}
+{"question":"Hàm trong Python có thể không có lệnh return không?","answer":"Không, hàm phải luôn có return.","other":"","subject":"ltpython","chapter":7,"_id":"5kJK42TZ0CjHpO9N"}
+{"question":"Hàm có thể được định nghĩa bên trong một hàm khác không?","answer":"Không, chỉ có thể định nghĩa ở cấp cao nhất.","other":"","subject":"ltpython","chapter":7,"_id":"QBXBNiuqqwmfYMKy"}
+{"question":"Nếu hàm trả về một list, kiểu dữ liệu trả về là gì?","answer":"Luôn là tuple.","other":"","subject":"ltpython","chapter":7,"_id":"sp3RSuqgRerEPWcp"}
+{"question":"Hàm lambda là gì?","answer":"Hàm thông thường với def.","other":"","subject":"ltpython","chapter":7,"_id":"H762wWxxJvHbaZSl"}
+{"question":"filter(lambda x: x > 0, [1, -2,\n  3]) trả về gì?","answer":"[1, 3] dưới dạng list.","other":"","subject":"ltpython","chapter":7,"_id":"2fpojAMM44n5h4vu"}
+{"question":"Để chuyển iterator từ filter thành list, dùng gì?","answer":"list(filter(...))","other":"","subject":"ltpython","chapter":7,"_id":"49KctTcGcbdyjaTI"}
+{"question":"Lambda có thể có nhiều biểu thức không?","answer":"Có, nhiều dòng.","other":"","subject":"ltpython","chapter":7,"_id":"rp90bk7LLc4SsPOc"}
+{"question":"Tên hàm trong Python có thể bắt đầu bằng gì?","answer":"Chỉ chữ cái hoặc dấu gạch dưới (_).","other":"","subject":"ltpython","chapter":7,"_id":"SWRLioLPDKdDYapm"}
+{"question":"Câu lệnh nào sau đây định nghĩa hàm với docstring?","answer":"def func(): \"\"\"This is docstring\"\"\"","other":"","subject":"ltpython","chapter":7,"_id":"1tI15z83UeIsphiL"}
+{"question":"Hàm có thể có cả tham số vị trí và tham số mặc định không?","answer":"Không, chỉ một loại.","other":"","subject":"ltpython","chapter":7,"_id":"SQR3SnsdoxB5mPTV"}
+{"question":"Để sử dụng hàm từ một module khác, ta dùng gì?","answer":"include module_name","other":"","subject":"ltpython","chapter":7,"_id":"kTATy4Q8PKn67gfC"}
+{"question":"Tham số mặc định trong hàm được định nghĩa như thế nào?","answer":"def func(a=5): ...","other":"","subject":"ltpython","chapter":7,"_id":"0v52l6Bxtm9HBf8L"}
+{"question":"Hàm có thể trả về một hàm khác không?","answer":"Không, chỉ giá trị cơ bản.","other":"","subject":"ltpython","chapter":7,"_id":"2ehopNhqBSuQzQxz"}
+{"question":"MRO (Method Resolution Order) trong Python quyết định điều gì?","answer":"Thứ tự các lớp được import","other":"","subject":"ltpython","chapter":8,"_id":"qU5x6ItDQkM8FC4n"}
+{"question":"Hàm nào được sử dụng để kiểm tra xem một đối tượng có phải là\n  instance của một lớp không?","answer":"isinstance()","other":"","subject":"ltpython","chapter":8,"_id":"rbKnTeZ1zjB5fskz"}
+{"question":"Thuộc tính của lớp được định nghĩa ở đâu?","answer":"Trong hàm __init__","other":"","subject":"ltpython","chapter":8,"_id":"trzdBrw0hmKMMBQj"}
+{"question":"Khi một lớp con định nghĩa lại phương thức của lớp cha, điều này\n  được gọi là gì?","answer":"Kế thừa","other":"","subject":"ltpython","chapter":8,"_id":"G0j2jN4ZR6P8EfOm"}
+{"question":"Cách nào sau đây được sử dụng để khai báo một thuộc tính private\n  trong Python?","answer":"__attribute","other":"","subject":"ltpython","chapter":8,"_id":"nNnms1bdq4v9K0lz"}
+{"question":"Cách nào sau đây là đúng để tạo một đối tượng từ lớp MyClass?","answer":"obj = MyClass","other":"","subject":"ltpython","chapter":8,"_id":"7bDZVunuAhm7CCcY"}
+{"question":"Hàm super() được sử dụng để làm gì trong một lớp con?","answer":"Gọi hàm __init__ của lớp con","other":"","subject":"ltpython","chapter":8,"_id":"Iwf56XIa4YuA7i1c"}
+{"question":"Hàm nào được sử dụng để kiểm tra xem một lớp có phải là lớp con\n  của một lớp khác không?","answer":"isinstance()","other":"","subject":"ltpython","chapter":8,"_id":"UxWDzwe01l6L6zzk"}
+{"question":"Làm thế nào để gọi hàm __init__ của lớp cha trong lớp con?","answer":"Parent.__init__(self)","other":"","subject":"ltpython","chapter":8,"_id":"03ZsOpLUNWdqZlpz"}
+{"question":"Làm thế nào để gọi phương thức say_hello của một đối tượng obj từ\n  lớp MyClass?","answer":"MyClass.say_hello()","other":"","subject":"ltpython","chapter":8,"_id":"t14MSo1bonc89RLi"}
+{"question":"Cú pháp nào được sử dụng để định nghĩa một phương thức tĩnh trong\n  lớp?","answer":"@staticmethod","other":"","subject":"ltpython","chapter":8,"_id":"mTslBa2yBm8K3soG"}
+{"question":"Cú pháp nào sau đây đúng để kế thừa một lớp Parent trong Python?","answer":"class Child(Parent):","other":"","subject":"ltpython","chapter":8,"_id":"z1alvCRPWNJHD6W0"}
+{"question":"Hàm nào được sử dụng làm hàm khởi tạo trong một lớp Python?","answer":"__init__","other":"","subject":"ltpython","chapter":8,"_id":"R24NRr0yge20f5Ba"}
+{"question":"Tham số đầu tiên của một phương thức lớp là gì?","answer":"self","other":"","subject":"ltpython","chapter":8,"_id":"F1ulQTkU8VLG7F2H"}
+{"question":"Làm thế nào để tạo một thuộc tính chỉ đọc trong Python?","answer":"Sử dụng decorator @property","other":"","subject":"ltpython","chapter":8,"_id":"i4D1Iba8OPymMWsh"}
+{"question":"Cú pháp nào sau đây là đúng để định nghĩa một lớp trong Python?","answer":"class MyClass:","other":"","subject":"ltpython","chapter":8,"_id":"WOT4nQUPzYr0zip4"}
+{"question":"Làm thế nào để import một lớp MyClass từ một module mymodule?","answer":"from mymodule import MyClass","other":"","subject":"ltpython","chapter":8,"_id":"KyfIUbmLqsf0bkXH"}
+{"question":"Để mở tệp ở chế độ chỉ đọc, tham số mode nào được sử dụng?","answer":"'w'","other":"","subject":"ltpython","chapter":9,"_id":"oJooln6zEElhAOrL"}
+{"question":"Hàm nào trong module json được sử dụng để chuyển một đối tượng\n  Python thành chuỗi JSON?","answer":"json.load()","other":"","subject":"ltpython","chapter":9,"_id":"80yKPkrgELEKkKlf"}
+{"question":"Để đọc từng dòng của một tệp văn bản, phương thức nào được sử\n  dụng?","answer":"file.read()","other":"","subject":"ltpython","chapter":9,"_id":"AllZTu3po4huPMKs"}
+{"question":"Thư viện nào được sử dụng để làm việc với dữ liệu JSON trong\n  Python?","answer":"xml","other":"","subject":"ltpython","chapter":9,"_id":"6tcLR7tyzJo6O8Jc"}
+{"question":"Khi mở tệp ở chế độ 'w', điều gì sẽ xảy ra nếu tệp đã tồn tại?","answer":"Tệp được mở để đọc","other":"","subject":"ltpython","chapter":9,"_id":"Xz3yRph6W2vtTxRT"}
+{"question":"Khi mở một tệp mà không sử dụng câu lệnh with, cần gọi phương\n  thức nào để đóng tệp?","answer":"file.close()","other":"","subject":"ltpython","chapter":9,"_id":"Bqb00dSJGAFWmWEE"}
+{"question":"Khi làm việc với dữ liệu JSON, nếu tệp JSON không đúng định dạng,\n  lỗi nào sẽ được ném ra?","answer":"FileNotFoundError","other":"","subject":"ltpython","chapter":9,"_id":"3iiGVjrVVBwWHQYH"}
+{"question":"Để ghi dữ liệu nhị phân vào một tệp, cần chuyển dữ liệu thành\n  kiểu nào trước?","answer":"str","other":"","subject":"ltpython","chapter":9,"_id":"dstkzCx8LbuIgnME"}
+{"question":"Làm thế nào để đọc toàn bộ nội dung của một tệp văn bản thành một\n  chuỗi?","answer":"file.read()","other":"","subject":"ltpython","chapter":9,"_id":"u2ou5CXnEBdjjqfL"}
+{"question":"Để ghi một chuỗi vào tệp, phương thức nào được sử dụng?","answer":"write()","other":"","subject":"ltpython","chapter":9,"_id":"py83rGH2E6xBbHNP"}
+{"question":"Phương thức nào được sử dụng để mở một tệp trong Python?","answer":"open_file()","other":"","subject":"ltpython","chapter":9,"_id":"1ZUDfzqMRcHpo73g"}
+{"question":"Trong Python, khi sử dụng khối try-except-else-finally, điều gì\n  sẽ xảy ra nếu không có ngoại lệ nào được ném ra trong khối try?","answer":"Khối except được thực thi, sau đó đến khối finally","other":"","subject":"ltpython","chapter":9,"_id":"fKyHsMmH9x39Qlz5"}
+{"question":"Câu lệnh with open('file.txt', 'r') as f: có lợi ích gì?","answer":"Tự động đóng tệp sau khi sử dụng","other":"","subject":"ltpython","chapter":9,"_id":"gS78DgB152Erxgfv"}
+{"question":"Khi đọc một tệp nhị phân, kiểu dữ liệu nào được trả về bởi phương\n  thức read()?","answer":"str","other":"","subject":"ltpython","chapter":9,"_id":"Mj94BgIU4Nn6bqeC"}
+{"question":"Để làm việc với dữ liệu nhị phân, chế độ mở tệp nào nên được sử\n  dụng?","answer":"'t'","other":"","subject":"ltpython","chapter":9,"_id":"lpK8xV0UiazkvwuM"}
