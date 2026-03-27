@@ -1,4 +1,4 @@
-1.Cài node v18 (version cao hơn có thể lỗi)
+1.Cài node v18 (version cao hơn có thể lỗi)  
 2.Chạy lệnh npm install  
 3.Chạy lệnh node index.js  
 4.Các tham số   
